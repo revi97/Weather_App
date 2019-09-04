@@ -1,0 +1,16 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    background: linear-gradient(#bb73e0,#ff8ddb);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
