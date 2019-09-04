@@ -30,6 +30,7 @@ body{
 {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .degree-section span
 {
