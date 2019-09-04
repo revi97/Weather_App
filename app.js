@@ -3,7 +3,7 @@ window.addEventListener('load',() =>{
     let lat;
     let temperatureDesc = document.querySelector(".temp-desc");
     let temperatureDegree = document.querySelector(".temp-degree");
-    let locationTimezone = document.querySelector(".location-timezone")
+    let locationTimezone = document.querySelector(".location-timezone");
 
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position =>{
@@ -17,13 +17,23 @@ window.addEventListener('load',() =>{
                 return response.json();
             })
             .then(data => {
-                const  {temperature,summary}    = data.currently;
+                const  {temperature,summary,icon}    = data.currently;
             
                 temperatureDegree.textContent = temperature;
                 temperatureDesc.textContent = summary;
                 locationTimezone.textContent = data.timezone;
 
+                setIcons(icon, document.querySelector(".icon"));
+
             });
         });      
+    }
+
+    function setIcons(icon, iconID)
+    {
+        const skycons = new Skycons({ color: "white" });
+        const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+        skycons.play();
+        return skycons.set(iconID,Skycons[currentIcon]);
     }
 });
